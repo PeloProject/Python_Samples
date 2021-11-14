@@ -1,19 +1,14 @@
-from logging import getLogger, StreamHandler, DEBUG
-logger = getLogger(__name__)
-handler = StreamHandler()
-handler.setLevel(DEBUG)
-logger.setLevel(DEBUG)
-logger.addHandler(handler)
-logger.propagate = False
-logger.debug('hello')
 
+import pl_logtest
 import sqlite3
 import os
+
+
 
 def DatabaseRootDir():
     curdir = os.getcwd()
     #print(curdir)
-    logger.debug(curdir)
+    logger.debug("1234"+curdir)
 
 
 def CreateDatabase(name:str):
@@ -24,5 +19,6 @@ def CreateDatabase(name:str):
     conn.close()
     print("test")
 
-
+#print(__name__)
+logger = pl_logtest.Setup(__name__)
 DatabaseRootDir()
