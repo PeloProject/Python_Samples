@@ -2,23 +2,32 @@
 import pl_logtest
 import sqlite3
 import os
+import subprocess
+from subprocess import PIPE
 
 
+# 
+logger = pl_logtest.Setup(__name__)
 
+#
 def DatabaseRootDir():
     curdir = os.getcwd()
     #print(curdir)
-    logger.debug("1234"+curdir)
+    logger.debug(curdir+"/database/")
 
-
-def CreateDatabase(name:str):
-    print("データベース[" + name + "]を作成")
+#
+def CreateDatabase(path:str):
+    print("データベース[" + path + "]を作成")
     
-    createName = name
+    createName = path
     conn = sqlite3.connect(createName)
     conn.close()
-    print("test")
+   
+# 
+def RunQuery(dbPath:str, queryPath:str):
+     msg="sqlite3 "+dbPath+" < "+queryPath
+     subprocess.run(msg, shell=True, text=True)
+ 	
+ 	
 
-#print(__name__)
-logger = pl_logtest.Setup(__name__)
-DatabaseRootDir()
+#

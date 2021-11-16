@@ -88,4 +88,4 @@ def insert_raw_prices_to_db(db_file_name, code_range):
 #for param in params:
 #    print(param)
 #raw_prices_generator(range(1301,1301))
-insert_raw_prices_to_db("/home/shinji/DB/kabutandb_test.sqlite3", range(1301,1302))
+#insert_raw_prices_to_db("/home/shinji/DB/kabutandb_test.sqlite3", range(1301,1302))
